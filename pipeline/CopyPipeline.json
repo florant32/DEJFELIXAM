@@ -17,6 +17,22 @@
 				"typeProperties": {
 					"enableStaging": false
 				}
+			},
+			{
+				"name": "SQL SERVER",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "CopyData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"annotations": []
