@@ -1,0 +1,17 @@
+{
+	"name": "SynapseOrders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LSsynapsedemogrp2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Orders"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

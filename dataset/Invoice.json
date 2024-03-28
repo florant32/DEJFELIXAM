@@ -1,0 +1,17 @@
+{
+	"name": "Invoice",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLServerOnpromise",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "Orders"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
