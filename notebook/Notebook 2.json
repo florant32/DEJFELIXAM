@@ -1,0 +1,80 @@
+{
+	"name": "Notebook 2",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkdejgrp2",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "f5718090-2fb5-4517-b66d-d55d63e673d2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/034f6d9b-1014-46e1-abdc-03b785afc51d/resourceGroups/RG-synapseinadaydej-grp2/providers/Microsoft.Synapse/workspaces/wssynapseinadaygrp2/bigDataPools/sparkdejgrp2",
+				"name": "sparkdejgrp2",
+				"type": "Spark",
+				"endpoint": "https://wssynapseinadaygrp2.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkdejgrp2",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load([\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-01.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-02.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-03.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-04.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-05.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-06.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-07.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-08.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-09.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-10.parquet',\r\n",
+					"    'abfss://synapseinadayfsngrp2@synapseinadaydlsgrp2.dfs.core.windows.net/DataParquet/green_tripdata_2021-11.parquet'\r\n",
+					"    ], format='parquet')\r\n",
+					"display(df.limit(10))"
+				],
+				"execution_count": 9
+			}
+		]
+	}
+}
